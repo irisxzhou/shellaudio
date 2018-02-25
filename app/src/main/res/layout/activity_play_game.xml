@@ -42,26 +42,26 @@
             android:id="@+id/score_counter"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp" />
 
         <Button
             android:id="@+id/button-a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
+            android:layout_gravity="start|center"
             android:layout_marginBottom="170dp"
             android:layout_marginLeft="60dp"
-            android:text="1" />
+            android:text="@string/button_a" />
 
         <Button
             android:id="@+id/button-b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
+            android:layout_gravity="end|center"
             android:layout_marginBottom="170dp"
             android:layout_marginRight="60dp"
-            android:text="2" />
+            android:text="@string/button_b" />
 
         <SeekBar
             android:id="@+id/seekBar"

@@ -5,6 +5,7 @@
     <string name="play_game">play game</string>
 
     <string name="title_activity_play_game">PlayGameActivity</string>
-
+    <string name="button_b">2</string>
+    <string name="button_a">1</string>
     <string name="title_activity_fullscreen2">FullscreenActivity2</string>
 </resources>
