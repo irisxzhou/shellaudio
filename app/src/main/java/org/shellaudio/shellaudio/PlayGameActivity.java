@@ -22,7 +22,6 @@ import java.util.Random;
  */
 public class PlayGameActivity extends AppCompatActivity {
     //int level;
-    //double[] notes = {261.63, 277.18, 293.66, 311.13, 329.63, 349.23, 369.99, 392.00, 415.30, 440.00, 466.16, 493.88};
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
