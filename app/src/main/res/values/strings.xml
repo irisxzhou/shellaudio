@@ -8,4 +8,12 @@
     <string name="button_b">2</string>
     <string name="button_a">1</string>
     <string name="title_activity_fullscreen2">FullscreenActivity2</string>
+
+    <string-array name="spinner_array">
+        <item>Major</item>
+        <item>Minor</item>
+        <item>Augmented</item>
+        <item>Diminshed</item>
+        <item>Perfect</item>
+    </string-array>
 </resources>

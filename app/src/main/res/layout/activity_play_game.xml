@@ -73,6 +73,16 @@
             android:gravity="center_horizontal"
             android:max="7"
             android:progress="0" />
+        
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="250dp"
+            android:entries="@array/spinner_array"
+            >
+        </Spinner>
 
 
     </FrameLayout>
