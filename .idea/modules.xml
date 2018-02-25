@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ShellAudio.iml" filepath="$PROJECT_DIR$/ShellAudio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shellaudio.iml" filepath="$PROJECT_DIR$/shellaudio.iml" />
       <module fileurl="file://$PROJECT_DIR$/shellaudio.iml" filepath="$PROJECT_DIR$/shellaudio.iml" />
     </modules>
   </component>
