@@ -17,4 +17,8 @@
         <item>Diminshed</item>
         <item>Perfect</item>
     </string-array>
+
+    <string name="title_activity_win_screen">WinScreenActivity</string>
+
+    <string name="title_activity_lose_screen">LoseScreenActivity</string>
 </resources>

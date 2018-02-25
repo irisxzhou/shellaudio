@@ -25,6 +25,16 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_play_game"
             android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".WinScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_win_screen"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".LoseScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_lose_screen"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

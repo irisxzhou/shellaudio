@@ -1,37 +1,18 @@
 package org.shellaudio.shellaudio;
 
 import android.annotation.SuppressLint;
-import android.app.backup.FullBackupDataOutput;
-import android.content.Intent;
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioTrack;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import java.util.Random;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class PlayGameActivity extends AppCompatActivity {
-    int curr = 0;
-    
-    public void nextScreenWin(View view) {
-        Intent intent = new Intent(this, WinScreenActivity.class);
-
-    }
-
-    public void nextScreenLose(View view) {
-
-    }
+public class LoseScreenActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -74,13 +55,13 @@ public class PlayGameActivity extends AppCompatActivity {
         public void run() {
             // Delayed display of UI elements
             ActionBar actionBar = getSupportActionBar();
-            /*if (actionBar != null) {
+            if (actionBar != null) {
                 actionBar.show();
-            }*/
+            }
             mControlsView.setVisibility(View.VISIBLE);
         }
     };
-    private boolean mVisible = false;
+    private boolean mVisible;
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
@@ -106,15 +87,7 @@ public class PlayGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_play_game);
-
-        //deal with intent things
-        Intent intent = getIntent();
-        curr = Integer.parseInt(intent.getStringExtra(FullscreenActivity.roundInfo));
-
-
-        TextView levelView = findViewById(R.id.score_counter);
-        levelView.setText(Integer.toString(curr));
+        setContentView(R.layout.activity_lose_screen);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -129,93 +102,11 @@ public class PlayGameActivity extends AppCompatActivity {
             }
         });
 
-
-        int result = makeSounds();
-
-        Button submit = this.findViewById(R.id.button_submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(true){
-                    nextScreenWin(v);
-                } else {
-                   nextScreenLose(v);
-                }
-            }
-        });
-
-
+        // Upon interacting with UI controls, delay any scheduled hide()
+        // operations to prevent the jarring behavior of controls going away
+        // while interacting with the UI.
+        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
     }
-
-    // returns semitone difference between two notes
-    private int makeSounds(){
-        // Even tempered for now, feel free to change later
-        // Ranges from A3 to C5 (inclusive)
-        double[] notes = new double[] {220.0,233.1,246.9,261.6,277.2,
-                293.7,311.1,329.6,349.2,370.0,392.0,415.3,440.0,466.2,
-                493.9, 523.3};
-
-        Random generator = new Random();
-        int noteA = generator.nextInt(notes.length);
-        int noteB; // must be within an octave of first note, or 12 semitones
-        do {
-            noteB = generator.nextInt(notes.length);
-        }while (Math.abs(noteA - noteB) > 12);
-
-        final double a = notes[noteA];
-        final double b = notes[noteB];
-
-        final int duration =  22050; // half a second
-
-        //if button a is pushed
-        Button buttonA = this.findViewById(R.id.button_a);
-        buttonA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playSound(a, duration);
-            }
-        });
-
-        //if button b is pushed
-        Button buttonB = this.findViewById(R.id.button_b);
-        buttonB.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                playSound(b, duration);
-            }
-        });
-        return Math.abs(noteA - noteB);
-    }
-
-    // Not sure exactly how this works but it does
-    private void playSound(double frequency, int duration) {
-        // AudioTrack definition
-        int mBufferSize = AudioTrack.getMinBufferSize(44100,
-                AudioFormat.CHANNEL_OUT_MONO,
-                AudioFormat.ENCODING_PCM_8BIT);
-
-        AudioTrack mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100,
-                AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT,
-                mBufferSize, AudioTrack.MODE_STREAM);
-
-        // Sine wave
-        double[] mSound = new double[duration];
-        short[] mBuffer = new short[duration];
-        for (int i = 0; i < mSound.length; i++) {
-            mSound[i] = Math.sin((2.0*Math.PI * i/(44100/frequency)));
-            mBuffer[i] = (short) (mSound[i]*Short.MAX_VALUE);
-        }
-
-        mAudioTrack.setStereoVolume(AudioTrack.getMaxVolume(), AudioTrack.getMaxVolume());
-        mAudioTrack.play();
-
-        mAudioTrack.write(mBuffer, 0, mSound.length);
-        mAudioTrack.stop();
-        mAudioTrack.release();
-
-    }
-
-
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -225,7 +116,6 @@ public class PlayGameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
-
     }
 
     private void toggle() {
@@ -253,9 +143,9 @@ public class PlayGameActivity extends AppCompatActivity {
     @SuppressLint("InlinedApi")
     private void show() {
         // Show the system bar
-        /*mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); */
-        mVisible = false;
+        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+        mVisible = true;
 
         // Schedule a runnable to display UI elements after a delay
         mHideHandler.removeCallbacks(mHidePart2Runnable);
@@ -270,6 +160,4 @@ public class PlayGameActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
-
-
 }
