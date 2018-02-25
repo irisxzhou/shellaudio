@@ -15,6 +15,7 @@ import android.widget.TextView;
  * status bar and navigation/system bar) with user interaction.
  */
 public class PlayGameActivity extends AppCompatActivity {
+    int level;
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -93,6 +94,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int curr = intent.getIntExtra("count", -1);
+        level = curr;
 
         TextView levelView = findViewById(R.id.editText2);
         levelView.setText(curr);
