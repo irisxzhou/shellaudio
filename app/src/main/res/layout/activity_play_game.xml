@@ -61,7 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:layout_marginRight="120dp"
+            android:layout_marginBottom="170dp"
+            android:layout_marginRight="60dp"
             android:text="Button" />
 
         <Button
@@ -69,16 +70,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginBottom="100dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginBottom="170dp"
+            android:layout_marginLeft="60dp"
             android:text="Button" />
 
 
         <SeekBar
             android:id="@+id/seekBar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="@android:dimen/thumbnail_width"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="@android:dimen/notification_large_icon_width"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center_horizontal"
             android:max="8"
             android:min="2"
             android:progress="1" />
