@@ -17,7 +17,7 @@ public class FullscreenActivity extends AppCompatActivity {
 
     /** Called when the user taps the "play game" button */
     public void playGame(View view) {
-        Intent intent = new Intent(this, playGameActivity.class);
+        Intent intent = new Intent(this, PlayGameActivity.class);
         int count = 0;
         intent.putExtra("round #", count);
         startActivity(intent);
