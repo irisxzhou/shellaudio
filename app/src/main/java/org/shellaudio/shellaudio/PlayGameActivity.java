@@ -103,7 +103,7 @@ public class PlayGameActivity extends AppCompatActivity {
         int curr = Integer.parseInt(intent.getStringExtra(FullscreenActivity.roundInfo));
 
 
-        TextView levelView = findViewById(R.id.editText2);
+        TextView levelView = findViewById(R.id.score_counter);
         levelView.setText(Integer.toString(curr));
 
         mVisible = true;
@@ -145,7 +145,7 @@ public class PlayGameActivity extends AppCompatActivity {
         final int duration =  22050; // half a second
 
         //if button a is pushed
-        Button buttonA = (Button) this.findViewById(R.id.button_a);
+        Button buttonA = this.findViewById(R.id.button_a);
         buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,7 +154,7 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
         //if button b is pushed
-        Button buttonB = (Button) this.findViewById(R.id.button_b);
+        Button buttonB = this.findViewById(R.id.button_b);
         buttonB.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
