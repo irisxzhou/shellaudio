@@ -29,13 +29,13 @@ public class PlayGameActivity extends AppCompatActivity {
 
     public void nextScreenWin(View view) {
         Intent intent = new Intent(this, WinScreenActivity.class);
-        intent.putExtra(roundInfo, Integer.toString(curr + 1));
+        //intent.putExtra(roundInfo, Integer.toString(curr + 1));
         startActivity(intent);
     }
 
     public void nextScreenLose(View view) {
         Intent intent = new Intent(this, LoseScreenActivity.class);
-        intent.putExtra(roundInfo, Integer.toString(curr));
+        //intent.putExtra(roundInfo, Integer.toString(curr));
         startActivity(intent);
     }
     /**
@@ -139,7 +139,7 @@ public class PlayGameActivity extends AppCompatActivity {
         int correct = makeSounds();
         //Spinner spinner = (Spinner) findViewById(R.id.modSpinner);
 
-
+        /**
         Button submit = this.findViewById(R.id.button_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,7 +150,7 @@ public class PlayGameActivity extends AppCompatActivity {
                    nextScreenLose(v);
                 }
             }
-        });
+        }); */
     }
 
     private int collectAnswer() {

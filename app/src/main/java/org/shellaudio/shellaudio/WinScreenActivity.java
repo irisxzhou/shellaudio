@@ -105,8 +105,8 @@ public class WinScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_win_screen);
 
-        Intent intent = getIntent();
-        curr = Integer.parseInt(intent.getStringExtra(PlayGameActivity.roundInfo));
+        //Intent intent = getIntent();
+        //curr = Integer.parseInt(intent.getStringExtra(PlayGameActivity.roundInfo));
 
         TextView scoreView = findViewById(R.id.score_box);
         scoreView.setText(Integer.toString(curr));
