@@ -127,6 +127,9 @@ public class PlayGameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
+
+        int initSeekBar();
+
     }
 
     private void toggle() {
@@ -171,4 +174,6 @@ public class PlayGameActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
+
 }
