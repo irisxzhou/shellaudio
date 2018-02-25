@@ -65,13 +65,13 @@ public class PlayGameActivity extends AppCompatActivity {
         public void run() {
             // Delayed display of UI elements
             ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
+            /*if (actionBar != null) {
                 actionBar.show();
-            }
+            }*/
             mControlsView.setVisibility(View.VISIBLE);
         }
     };
-    private boolean mVisible;
+    private boolean mVisible = false;
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
@@ -107,7 +107,6 @@ public class PlayGameActivity extends AppCompatActivity {
         //TextView levelView = findViewById(R.id.editText2);
         //levelView.setText(0);
 
-
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
@@ -126,17 +125,17 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
-    public void makeSounds(){
+    // returns semitone difference between two notes
+    private int makeSounds(){
         // Even tempered for now, feel free to change later
-        // Ranges from C3 to C5 (inclusive)
-        double[] notes = new double[] {130.8,138.6,146.8,155.6,164.8,
-                174.6,185.0,196.0,207.7,220.0,233.1,246.9,261.6,277.2,
+        // Ranges from A3 to C5 (inclusive)
+        double[] notes = new double[] {220.0,233.1,246.9,261.6,277.2,
                 293.7,311.1,329.6,349.2,370.0,392.0,415.3,440.0,466.2,
                 493.9, 523.3};
 
         Random generator = new Random();
         int noteA = generator.nextInt(notes.length);
-        int noteB; // must be within an octave of first note
+        int noteB; // must be within an octave of first note, or 12 semitones
         do {
             noteB = generator.nextInt(notes.length);
         }while (Math.abs(noteA - noteB) > 12);
@@ -144,7 +143,7 @@ public class PlayGameActivity extends AppCompatActivity {
         final double a = notes[noteA];
         final double b = notes[noteB];
 
-        final int duration =  22050;
+        final int duration =  22050; // half a second
 
         //if button a is pushed
         Button buttonA = (Button) this.findViewById(R.id.button_a);
@@ -163,9 +162,10 @@ public class PlayGameActivity extends AppCompatActivity {
                 playSound(b, duration);
             }
         });
+        return Math.abs(noteA - noteB);
     }
 
-
+    // Not sure exactly how this works but it does
     private void playSound(double frequency, int duration) {
         // AudioTrack definition
         int mBufferSize = AudioTrack.getMinBufferSize(44100,
@@ -193,6 +193,8 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -201,8 +203,6 @@ public class PlayGameActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
-
-        //int initSeekBar();
 
     }
 
@@ -231,9 +231,9 @@ public class PlayGameActivity extends AppCompatActivity {
     @SuppressLint("InlinedApi")
     private void show() {
         // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        mVisible = true;
+        /*mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); */
+        mVisible = false;
 
         // Schedule a runnable to display UI elements after a delay
         mHideHandler.removeCallbacks(mHidePart2Runnable);
