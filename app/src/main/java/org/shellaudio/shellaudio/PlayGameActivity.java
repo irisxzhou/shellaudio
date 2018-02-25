@@ -101,11 +101,11 @@ public class PlayGameActivity extends AppCompatActivity {
 
         //deal with intent things
         Intent intent = getIntent();
-        int curr = intent.getIntExtra("round #", -1);
+        //int curr = intent.getIntExtra("round #", -1);
         //level = curr;
 
         TextView levelView = findViewById(R.id.editText2);
-        levelView.setText(curr);
+        //levelView.setText(curr);
 
 
         mVisible = true;
@@ -121,10 +121,6 @@ public class PlayGameActivity extends AppCompatActivity {
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
         //makeSounds();
 

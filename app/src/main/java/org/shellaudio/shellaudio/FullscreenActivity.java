@@ -19,8 +19,8 @@ public class FullscreenActivity extends AppCompatActivity {
     /** Called when the user taps the "play game" button */
     public void playGame(View view) {
         Intent intent = new Intent(this, PlayGameActivity.class);
-        int count = 0;
-        intent.putExtra("round #", count);
+        //int count = 0;
+        //intent.putExtra("round #", count);
         startActivity(intent);
     }
 
@@ -113,13 +113,9 @@ public class FullscreenActivity extends AppCompatActivity {
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
-        Button playGame = (Button) this.findViewById(R.id.button);
-        playGame.setOnClickListener(new View.OnClickListener() {
+        Button playButton = (Button) this.findViewById(R.id.button);
+        playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playGame(v);
