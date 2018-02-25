@@ -36,15 +36,59 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+
 
         </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/your_score_is_win"
+                android:textSize="45sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/your_score_is"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="top|center"/>
+
+            <TextView
+                android:id="@+id/score_box"
+                android:textSize="60sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_gravity="top|center"
+                android:text="Score" />
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:layout_marginLeft="60dp"
+                android:layout_gravity="start|center"
+                android:text="@string/return_home" />
+
+            <Button
+                android:id="@+id/continue_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:layout_marginRight="60dp"
+                android:layout_gravity="end|center"
+                android:text="@string/cont" />
+
+
+
+
+
+
+        </GridLayout>
     </FrameLayout>
 
 </FrameLayout>

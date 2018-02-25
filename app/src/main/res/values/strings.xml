@@ -20,6 +20,9 @@
     </string-array>
 
     <string name="title_activity_win_screen">WinScreenActivity</string>
+    <string name="your_score_is">Your Score Is:</string>
+    <string name="return_home">Go Back</string>
+    <string name="cont">Continue</string>
 
     <string name="title_activity_lose_screen">LoseScreenActivity</string>
 </resources>

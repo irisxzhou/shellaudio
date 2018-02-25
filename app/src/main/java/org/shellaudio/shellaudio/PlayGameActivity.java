@@ -24,14 +24,19 @@ import java.util.Random;
  */
 public class PlayGameActivity extends AppCompatActivity {
     int curr = 0;
-    
+
+    final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM";
+
     public void nextScreenWin(View view) {
         Intent intent = new Intent(this, WinScreenActivity.class);
-
+        intent.putExtra(roundInfo, Integer.toString(curr + 1));
+        startActivity(intent);
     }
 
     public void nextScreenLose(View view) {
-
+        Intent intent = new Intent(this, LoseScreenActivity.class);
+        intent.putExtra(roundInfo, Integer.toString(curr));
+        startActivity(intent);
     }
     /**
      * Whether or not the system UI should be auto-hidden after
