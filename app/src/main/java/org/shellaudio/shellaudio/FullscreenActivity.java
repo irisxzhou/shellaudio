@@ -16,7 +16,7 @@ import android.widget.Button;
  */
 public class FullscreenActivity extends AppCompatActivity {
 
-    final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM"
+    final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM";
 
     /** Called when the user taps the "play game" button */
     public void playGame(View view) {
