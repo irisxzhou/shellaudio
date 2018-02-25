@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -147,16 +149,25 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
 
-        int correct = makeSounds();
-        //Spinner spinner = (Spinner) findViewById(R.id.modSpinner);
+        final int correct = makeSounds();
+
 
 
         Button submit = this.findViewById(R.id.button_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isRight = false;
-                if(isRight){
+                Spinner spinner = findViewById(R.id.modSpinner);
+                String attribute = spinner.getSelectedItem().toString();
+
+                SeekBar intervalBar = findViewById(R.id.seekBar);
+                int interval = intervalBar.getProgress() + 1;
+
+                attribute += " ";
+                attribute += interval;
+
+                int result = collectAnswer(attribute);
+                if(result == correct){
                     curr = curr + 1;
                     cont(v);
                 } else {
@@ -166,15 +177,20 @@ public class PlayGameActivity extends AppCompatActivity {
         });
     }
 
-    private int collectAnswer() {
+    private int collectAnswer(String s) {
 
         /* collect two inputs from spinner and slider, combine into string
          then search in hashmap to find semitone distance and return
          */
         /*
-        HashMap,Integer> semitones =
-                new HashMap<Pair<String,Integer>,Integer>();
-        semitones.put(Pair<"Perfect",1>,0);
+        HashMap<String,Integer> semitones =
+                new HashMap<String, Integer>();
+        semitones.put("Perfect 1",0);
+        semitones.put("Diminished 2", 0);
+        semitones.put("Minor 2", 1);
+        semitones.put("Augmented 1", 1);
+        semitones.put("Major 2", 2);
+        semitones.put("Diminished 3", 2);
 
         return 0;*/
         return 0;
