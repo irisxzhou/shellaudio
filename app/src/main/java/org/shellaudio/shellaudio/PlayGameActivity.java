@@ -122,7 +122,7 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
 
-        //makeSounds();
+        makeSounds();
 
     }
 
@@ -136,18 +136,19 @@ public class PlayGameActivity extends AppCompatActivity {
 
         Random generator = new Random();
         int noteA = generator.nextInt(notes.length);
-        int noteB;
+        int noteB; // must be within an octave of first note
         do {
             noteB = generator.nextInt(notes.length);
         }while (Math.abs(noteA - noteB) > 12);
 
         final double a = notes[noteA];
-        final double b = 0;
-        final int duration = 22050;
+        final double b = notes[noteB];
+
+        final int duration =  22050;
 
         //if button a is pushed
-        Button buttona = (Button) this.findViewById(R.id.button_a);
-        buttona.setOnClickListener(new View.OnClickListener() {
+        Button buttonA = (Button) this.findViewById(R.id.button_a);
+        buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playSound(a, duration);
@@ -155,31 +156,16 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
         //if button b is pushed
-        Button buttonb = (Button) this.findViewById(R.id.button_b);
-        buttonb.setOnClickListener(new View.OnClickListener(){
+        Button buttonB = (Button) this.findViewById(R.id.button_b);
+        buttonB.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 playSound(b, duration);
             }
         });
-
-
     }
 
-    /*private double getRandomNote(){;
-        // Even tempered for now, feel free to change later
-        // Ranges from C3 to C5 (inclusive)
-        double[] notes = new double[] {130.8,138.6,146.8,155.6,164.8,
-                174.6,185.0,196.0,207.7,220.0,233.1,246.9,261.6,277.2,
-                293.7,311.1,329.6,349.2,370.0,392.0,415.3,440.0,466.2,
-                493.9, 523.3};
 
-        Random generator = new Random();
-        // Generates semitone distance
-        int randomIndex = generator.nextInt(13);
-        return notes[randomIndex];
-    }
-    */
     private void playSound(double frequency, int duration) {
         // AudioTrack definition
         int mBufferSize = AudioTrack.getMinBufferSize(44100,
@@ -191,7 +177,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 mBufferSize, AudioTrack.MODE_STREAM);
 
         // Sine wave
-        double[] mSound = new double[4410];
+        double[] mSound = new double[duration];
         short[] mBuffer = new short[duration];
         for (int i = 0; i < mSound.length; i++) {
             mSound[i] = Math.sin((2.0*Math.PI * i/(44100/frequency)));
