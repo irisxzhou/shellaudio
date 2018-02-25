@@ -2,6 +2,9 @@ package org.shellaudio.shellaudio;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +13,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Random;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class PlayGameActivity extends AppCompatActivity {
     int level;
+    double[] notes = {261.63, 277.18, 293.66, 311.13, 329.63, 349.23, 369.99, 392.00, 415.30, 440.00, 466.16, 493.88};
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -92,8 +98,9 @@ public class PlayGameActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_play_game);
 
+        //deal with intent things
         Intent intent = getIntent();
-        int curr = intent.getIntExtra("count", -1);
+        int curr = intent.getIntExtra("round #", -1);
         level = curr;
 
         TextView levelView = findViewById(R.id.editText2);
@@ -117,6 +124,54 @@ public class PlayGameActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        makeSounds();
+
+    }
+
+    private void makeSounds(){
+        double a = getRandomNote();
+        double b = getRandomNote();
+        int duration = 22050;
+
+        //if button a is pushed
+        playSound(a, duration);
+        //if button b is pushed
+        playSound(b, duration);
+
+    }
+
+    private double getRandomNote(){
+        Random generator = new Random();
+        int randomIndex = generator.nextInt(notes.length);
+        return notes[randomIndex];
+    }
+
+    private void playSound(double frequency, int duration) {
+        // AudioTrack definition
+        int mBufferSize = AudioTrack.getMinBufferSize(44100,
+                AudioFormat.CHANNEL_OUT_MONO,
+                AudioFormat.ENCODING_PCM_8BIT);
+
+        AudioTrack mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100,
+                AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT,
+                mBufferSize, AudioTrack.MODE_STREAM);
+
+        // Sine wave
+        double[] mSound = new double[4410];
+        short[] mBuffer = new short[duration];
+        for (int i = 0; i < mSound.length; i++) {
+            mSound[i] = Math.sin((2.0*Math.PI * i/(44100/frequency)));
+            mBuffer[i] = (short) (mSound[i]*Short.MAX_VALUE);
+        }
+
+        mAudioTrack.setStereoVolume(AudioTrack.getMaxVolume(), AudioTrack.getMaxVolume());
+        mAudioTrack.play();
+
+        mAudioTrack.write(mBuffer, 0, mSound.length);
+        mAudioTrack.stop();
+        mAudioTrack.release();
+
     }
 
     @Override
