@@ -66,9 +66,11 @@ public class FullscreenActivity extends AppCompatActivity {
         public void run() {
             // Delayed display of UI elements
             ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
+            // Uncomment this if you want to do stuff with action bar
+            // but currently it's blank and empty so I'm taking it out @ 4:22AM
+            /*if (actionBar != null) {
                 actionBar.show();
-            }
+            }*/
             mControlsView.setVisibility(View.VISIBLE);
         }
     };
@@ -100,7 +102,7 @@ public class FullscreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_fullscreen);
 
-        mVisible = true;
+        mVisible = false;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
