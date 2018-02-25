@@ -37,7 +37,7 @@
             android:background="@drawable/circlebuttonsmall"
             android:drawableBottom="@color/colorPrimary"
             android:gravity="center_horizontal"
-            android:paddingTop="50"
+            android:paddingTop="50dp"
             android:text="@string/play_game" />
 
         <TextView
