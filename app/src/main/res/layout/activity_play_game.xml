@@ -84,6 +84,13 @@
             >
         </Spinner>
 
+        <Button
+            android:id="@+id/button-submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="30dp"
+            android:text="@string/button_submit" />
 
     </FrameLayout>
 

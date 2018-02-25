@@ -7,6 +7,7 @@
     <string name="title_activity_play_game">PlayGameActivity</string>
     <string name="button_b">2</string>
     <string name="button_a">1</string>
+    <string name="button_submit">Submit</string>
     <string name="title_activity_fullscreen2">FullscreenActivity2</string>
 
     <string-array name="spinner_array">
