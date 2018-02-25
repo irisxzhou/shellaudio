@@ -50,7 +50,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="play game" />
+            android:text="@string/play_game" />
     </FrameLayout>
 
 </FrameLayout>
