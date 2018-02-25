@@ -8,16 +8,7 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
@@ -36,16 +27,21 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent" />
 
+
         <Button
             android:id="@+id/button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
-            android:editable="false"
-            android:fontFamily="monospace"
+            android:background="@drawable/circlebuttonsmall"
+            android:drawableBottom="@color/colorPrimary"
+            android:fontFamily="@font/comfortaa"
             android:gravity="center_horizontal"
+            android:paddingTop="55dp"
             android:text="@string/play_game" />
+
+
     </FrameLayout>
 
 </FrameLayout>
