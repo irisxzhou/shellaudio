@@ -34,15 +34,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
-            tools:ignore="UselessParent" />
+            tools:ignore="UselessParent">
 
-        <EditText
-            android:id="@+id/editText2"
+        </android.support.constraint.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/button-a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:ems="10"
-            android:inputType="number" />
+            android:layout_gravity="left|center"
+            android:layout_marginBottom="170dp"
+            android:layout_marginLeft="60dp"
+            android:text="1" />
 
         <Button
             android:id="@+id/button-b"
@@ -51,17 +55,7 @@
             android:layout_gravity="right|center"
             android:layout_marginBottom="170dp"
             android:layout_marginRight="60dp"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button-a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="170dp"
-            android:layout_marginLeft="60dp"
-            android:text="Button" />
-
+            android:text="2" />
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -69,11 +63,11 @@
             android:layout_width="280dp"
             android:layout_height="@android:dimen/notification_large_icon_width"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             android:gravity="center_horizontal"
-            android:max="8"
-            android:min="2"
-            android:progress="1" />
+            android:max="7"
+            android:progress="0" />
+
 
     </FrameLayout>
 
