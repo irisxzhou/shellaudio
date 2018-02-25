@@ -40,22 +40,14 @@
             />
 
         <Button
-            android:id="@+id/button-a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|center"
-            android:layout_marginBottom="170dp"
-            android:layout_marginLeft="60dp"
-            android:text="@string/button_a" />
-
-        <Button
             android:id="@+id/button-b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center"
             android:layout_marginBottom="170dp"
             android:layout_marginRight="60dp"
-            android:text="@string/button_b" />
+            android:text="@string/button_b"
+            android:fontFamily="@font/comfortaa"/>
 
         <com.xw.repo.BubbleSeekBar
             android:id="@+id/bubbleSeekBar"
@@ -83,7 +75,8 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="250dp"
             android:entries="@array/spinner_array"
-            android:prompt="@string/spinner_prompt"></Spinner>
+            android:prompt="@string/spinner_prompt"
+           ></Spinner>
 
         <Button
             android:id="@+id/button-submit"
@@ -92,6 +85,16 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="30dp"
             android:text="@string/button_submit" />
+
+        <Button
+            android:id="@+id/button-a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginBottom="170dp"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="@font/comfortaa"
+            android:text="@string/button_a" />
 
     </FrameLayout>
 
