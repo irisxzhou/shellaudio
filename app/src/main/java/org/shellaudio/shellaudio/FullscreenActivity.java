@@ -13,6 +13,12 @@ import android.view.View;
  * status bar and navigation/system bar) with user interaction.
  */
 public class FullscreenActivity extends AppCompatActivity {
+    
+    /** Called when the user taps the "play game" button */
+    public void playGame(View view) {
+        // Do something in response to button
+    }
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.https://developer.android.com/training/basics/firstapp/building-ui.html
