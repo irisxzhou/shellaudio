@@ -27,6 +27,17 @@ public class PlayGameActivity extends AppCompatActivity {
 
     final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM";
 
+    public void cont(View view) {
+        Intent intent = new Intent(this, PlayGameActivity.class);
+        intent.putExtra(FullscreenActivity.roundInfo, Integer.toString(curr));
+        startActivity(intent);
+    }
+
+    public void back(View view) {
+        Intent intent = new Intent(this, PlayGameActivity.class);
+        intent.putExtra(FullscreenActivity.roundInfo, "0");
+        startActivity(intent);
+    }
     public void nextScreenWin(View view) {
         Intent intent = new Intent(this, WinScreenActivity.class);
         //intent.putExtra(roundInfo, Integer.toString(curr + 1));
@@ -139,18 +150,20 @@ public class PlayGameActivity extends AppCompatActivity {
         int correct = makeSounds();
         //Spinner spinner = (Spinner) findViewById(R.id.modSpinner);
 
-        /**
+
         Button submit = this.findViewById(R.id.button_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(true){
-                    nextScreenWin(v);
+                boolean isRight = false;
+                if(isRight){
+                    curr = curr + 1;
+                    cont(v);
                 } else {
-                   nextScreenLose(v);
+                   back(v);
                 }
             }
-        }); */
+        });
     }
 
     private int collectAnswer() {
