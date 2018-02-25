@@ -75,7 +75,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="250dp"
             android:entries="@array/spinner_array"
-            android:prompt="@string/spinner_prompt"></Spinner>
+            android:prompt="@string/spinner_prompt"/>
 
         <Button
             android:id="@+id/button-submit"
