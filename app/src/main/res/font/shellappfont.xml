@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    TextView tv = (TextView) findViewById(R.id.tv);
+    Typeface tf = Typeface.createFromAsset(v.getContext().getAssets(), "fonts/GothamRnd-Book.otf");
+    tv.setTypeface(tf);
+
+</font-family>
