@@ -100,11 +100,11 @@ public class PlayGameActivity extends AppCompatActivity {
 
         //deal with intent things
         Intent intent = getIntent();
-        int curr = intent.getIntExtra(FullscreenActivity.roundInfo, -1);
+        int curr = Integer.parseInt(intent.getStringExtra(FullscreenActivity.roundInfo));
 
 
         TextView levelView = findViewById(R.id.editText2);
-        levelView.setText(curr);
+        levelView.setText(Integer.toString(curr));
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
