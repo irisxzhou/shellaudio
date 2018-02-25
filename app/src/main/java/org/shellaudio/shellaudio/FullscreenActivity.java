@@ -1,6 +1,7 @@
 package org.shellaudio.shellaudio;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,10 +14,13 @@ import android.view.View;
  * status bar and navigation/system bar) with user interaction.
  */
 public class FullscreenActivity extends AppCompatActivity {
-    
+
     /** Called when the user taps the "play game" button */
     public void playGame(View view) {
-        // Do something in response to button
+        Intent intent = new Intent(this, playGameActivity.class);
+        int count = 0;
+        intent.putExtra("round #", count);
+        startActivity(intent);
     }
 
     /**
