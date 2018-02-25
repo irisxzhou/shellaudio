@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="250dp"
             android:entries="@array/spinner_array"
-            android:prompt="@string/spinner_prompt"></Spinner>
+            android:prompt="@string/spinner_prompt" />
 
         <Button
             android:id="@+id/button-submit"
@@ -102,10 +102,9 @@
             android:gravity="center"
             android:keepScreenOn="true"
 
-            android:textColor="@color/ic_launcher_background"
-            android:textSize="50sp"
-            android:textStyle="bold" />
+
+           />
 
     </FrameLayout>
 
-</FrameLayout>
+</RelativeLayout>
