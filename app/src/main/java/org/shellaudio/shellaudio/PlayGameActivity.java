@@ -1,6 +1,7 @@
 package org.shellaudio.shellaudio;
 
 import android.annotation.SuppressLint;
+import android.app.backup.FullBackupDataOutput;
 import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -21,7 +22,6 @@ import java.util.Random;
  * status bar and navigation/system bar) with user interaction.
  */
 public class PlayGameActivity extends AppCompatActivity {
-    //int level;
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -100,11 +100,11 @@ public class PlayGameActivity extends AppCompatActivity {
 
         //deal with intent things
         Intent intent = getIntent();
-        //int curr = intent.getIntExtra("round #", -1);
-        //level = curr;
+        int curr = Integer.parseInt(intent.getStringExtra(FullscreenActivity.roundInfo));
 
-        //TextView levelView = findViewById(R.id.editText2);
-        //levelView.setText(0);
+
+        TextView levelView = findViewById(R.id.editText2);
+        levelView.setText(Integer.toString(curr));
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);

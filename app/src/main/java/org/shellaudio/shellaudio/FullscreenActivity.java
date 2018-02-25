@@ -16,11 +16,12 @@ import android.widget.Button;
  */
 public class FullscreenActivity extends AppCompatActivity {
 
+    final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM";
+
     /** Called when the user taps the "play game" button */
     public void playGame(View view) {
         Intent intent = new Intent(this, PlayGameActivity.class);
-        //int count = 0;
-        //intent.putExtra("round #", count);
+        intent.putExtra(roundInfo, "0");
         startActivity(intent);
     }
 
