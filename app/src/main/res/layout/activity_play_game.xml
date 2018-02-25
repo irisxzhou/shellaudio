@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
             tools:ignore="UselessParent">
 
         </android.support.constraint.ConstraintLayout>
@@ -43,6 +42,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="340dp"
             android:layout_marginTop="10dp" />
 
         <Button
@@ -75,11 +75,12 @@
             android:progress="0" />
         
         <Spinner
-            android:id="@+id/typeSpinner"
+            android:id="@+id/modSpinner"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="250dp"
+            android:prompt="@string/spinner_prompt"
             android:entries="@array/spinner_array"
             >
         </Spinner>

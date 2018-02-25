@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -130,7 +131,9 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
 
-        int result = makeSounds();
+        int correct = makeSounds();
+        //Spinner spinner = (Spinner) findViewById(R.id.modSpinner);
+
 
         Button submit = this.findViewById(R.id.button_submit);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -143,8 +146,20 @@ public class PlayGameActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private int collectAnswer() {
 
+        /* collect two inputs from spinner and slider, combine into string
+         then search in hashmap to find semitone distance and return
+         */
+        /*
+        HashMap,Integer> semitones =
+                new HashMap<Pair<String,Integer>,Integer>();
+        semitones.put(Pair<"Perfect",1>,0);
+
+        return 0;*/
+        return 0;
     }
 
     // returns semitone difference between two notes
