@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@color/colorPrimary"
     tools:context="org.shellaudio.shellaudio.PlayGameActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -32,8 +32,8 @@
             android:id="@+id/score_counter"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:textSize="25sp"
 
@@ -46,8 +46,8 @@
             android:layout_gravity="end|center"
             android:layout_marginBottom="170dp"
             android:layout_marginRight="60dp"
-            android:text="@string/button_b"
-            android:fontFamily="@font/comfortaa"/>
+            android:fontFamily="@font/comfortaa"
+            android:text="@string/button_b" />
 
         <com.xw.repo.BubbleSeekBar
             android:id="@+id/bubbleSeekBar"
@@ -75,8 +75,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="250dp"
             android:entries="@array/spinner_array"
-            android:prompt="@string/spinner_prompt"
-           ></Spinner>
+            android:prompt="@string/spinner_prompt"></Spinner>
 
         <Button
             android:id="@+id/button-submit"
@@ -95,6 +94,17 @@
             android:layout_marginLeft="60dp"
             android:fontFamily="@font/comfortaa"
             android:text="@string/button_a" />
+
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
     </FrameLayout>
 
