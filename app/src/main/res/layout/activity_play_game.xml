@@ -56,35 +56,32 @@
             android:ems="10"
             android:inputType="number" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50px" />
-
         <Button
             android:id="@+id/button-b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:layout_marginRight="120px"
+            android:layout_marginRight="120dp"
             android:text="Button" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/button-a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginBottom="100px"
-            android:layout_marginLeft="120px"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="120dp"
             android:text="Button" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="@android:dimen/thumbnail_width"
+            android:layout_height="wrap_content"
+            android:max="8"
+            android:min="2"
+            android:progress="1" />
 
     </FrameLayout>
 
