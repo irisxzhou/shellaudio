@@ -17,8 +17,11 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.xw.repo.BubbleSeekBar;
+
 import java.util.HashMap;
 import java.util.Random;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -160,7 +163,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 Spinner spinner = findViewById(R.id.modSpinner);
                 String attribute = spinner.getSelectedItem().toString();
 
-                SeekBar intervalBar = findViewById(R.id.seekBar);
+                BubbleSeekBar intervalBar = findViewById(R.id.bubbleSeekBar);
                 int interval = intervalBar.getProgress() + 1;
 
                 attribute += " ";
@@ -182,7 +185,7 @@ public class PlayGameActivity extends AppCompatActivity {
         /* collect two inputs from spinner and slider, combine into string
          then search in hashmap to find semitone distance and return
          */
-        /*
+
         HashMap<String,Integer> semitones =
                 new HashMap<String, Integer>();
         semitones.put("Perfect 1",0);
@@ -191,9 +194,28 @@ public class PlayGameActivity extends AppCompatActivity {
         semitones.put("Augmented 1", 1);
         semitones.put("Major 2", 2);
         semitones.put("Diminished 3", 2);
+        semitones.put("Minor 3", 3);
+        semitones.put("Augmented 2", 3);
+        semitones.put("Major 3", 4);
+        semitones.put("Diminished 4", 4);
+        semitones.put("Perfect 4", 5);
+        semitones.put("Augmented 3", 5);
+        semitones.put("Diminished 5", 6);
+        semitones.put("Augmented 4", 6);
+        semitones.put("Perfect 5", 7);
+        semitones.put("Diminished 6", 7);
+        semitones.put("Minor 6", 8);
+        semitones.put("Augmented 5", 8);
+        semitones.put("Major 6", 9);
+        semitones.put("Diminished 7", 9);
+        semitones.put("Minor 7", 10);
+        semitones.put("Augmented 6", 10);
+        semitones.put("Major 7", 11);
+        semitones.put("Diminished 8", 11);
+        semitones.put("Perfect 8", 12);
+        semitones.put("Augmented 7", 12);
 
-        return 0;*/
-        return 0;
+        return semitones.get(s);
     }
 
     // returns semitone difference between two notes
