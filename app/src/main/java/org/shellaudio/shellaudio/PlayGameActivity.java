@@ -17,8 +17,11 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.xw.repo.BubbleSeekBar;
+
 import java.util.HashMap;
 import java.util.Random;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -160,7 +163,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 Spinner spinner = findViewById(R.id.modSpinner);
                 String attribute = spinner.getSelectedItem().toString();
 
-                SeekBar intervalBar = findViewById(R.id.seekBar);
+                BubbleSeekBar intervalBar = findViewById(R.id.bubbleSeekBar);
                 int interval = intervalBar.getProgress() + 1;
 
                 attribute += " ";
