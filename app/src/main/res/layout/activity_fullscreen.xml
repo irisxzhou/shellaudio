@@ -54,7 +54,6 @@
             android:layout_gravity="center|center_horizontal"
             android:fontFamily="monospace"
             android:gravity="center_horizontal"
-            android:onClick="playGame"
             android:text="@string/play_game" />
     </FrameLayout>
 
