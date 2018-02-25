@@ -234,12 +234,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 293.7,311.1,329.6,349.2,370.0,392.0,415.3,440.0,466.2,
                 493.9, 523.3};
 
-        int noteA = 0;
-        int noteB = 0;
-
-        final double a = notes[noteA];
-        final double b = notes[noteB];
-        /**
+        
         Random generator = new Random();
         int noteA = generator.nextInt(notes.length);
         int noteB; // must be within an octave of first note, or 12 semitones
@@ -249,7 +244,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         final double a = notes[noteA];
         final double b = notes[noteB];
-        */
+
         final int duration =  22050; // half a second
 
         //if button a is pushed
