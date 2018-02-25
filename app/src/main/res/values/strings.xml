@@ -5,4 +5,6 @@
     <string name="play_game">play game</string>
 
     <string name="title_activity_play_game">PlayGameActivity</string>
+
+    <string name="title_activity_fullscreen2">FullscreenActivity2</string>
 </resources>
