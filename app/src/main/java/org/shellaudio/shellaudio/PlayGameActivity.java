@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ import java.util.Random;
  */
 public class PlayGameActivity extends AppCompatActivity {
     int curr = 0;
+    HashMap<String,Integer> semitones = new HashMap<String, Integer>();
 
     final static String roundInfo = "org.shellaudio.shellaudio.EXTRA_ROUNDNUM";
 
@@ -151,41 +153,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         final int correct = makeSounds();
 
-
-
-        Button submit = this.findViewById(R.id.button_submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Spinner spinner = findViewById(R.id.modSpinner);
-                String attribute = spinner.getSelectedItem().toString();
-
-                SeekBar intervalBar = findViewById(R.id.seekBar);
-                int interval = intervalBar.getProgress() + 1;
-
-                attribute += " ";
-                attribute += interval;
-
-                int result = collectAnswer(attribute);
-                if(result == correct){
-                    curr = curr + 1;
-                    cont(v);
-                } else {
-                   back(v);
-                }
-            }
-        });
-    }
-
-    private int collectAnswer(String s) {
-
-        /* collect two inputs from spinner and slider, combine into string
-         then search in hashmap to find semitone distance and return
-         */
-
-        HashMap<String,Integer> semitones =
-                new HashMap<String, Integer>();
-        semitones.put("Perfect 1",0);
+        semitones.put("Perfect 1", 0);
         semitones.put("Diminished 2", 0);
         semitones.put("Minor 2", 1);
         semitones.put("Augmented 1", 1);
@@ -212,7 +180,48 @@ public class PlayGameActivity extends AppCompatActivity {
         semitones.put("Perfect 8", 12);
         semitones.put("Augmented 7", 12);
 
-        return semitones.get(s);
+        Button submit = this.findViewById(R.id.button_submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spinner spinner = findViewById(R.id.modSpinner);
+                String attribute = spinner.getSelectedItem().toString();
+
+                Log.e("test", attribute);
+
+                SeekBar intervalBar = findViewById(R.id.seekBar);
+                int interval = intervalBar.getProgress() + 1;
+
+                Log.e("intervalTest", Integer.toString(interval));
+
+                attribute += " ";
+                attribute += interval;
+
+                Log.e("attributeTest", attribute);
+
+                int result = collectAnswer(attribute);
+                if(result == correct){
+                    curr = curr + 1;
+                    cont(v);
+                } else {
+                    back(v);
+                }
+            }
+        });
+    }
+
+    private int collectAnswer(String s) {
+
+        /* collect two inputs from spinner and slider, combine into string
+         then search in hashmap to find semitone distance and return
+         */
+
+        if (semitones.containsKey(s) == true) {
+            return semitones.get(s);
+        }
+        else {
+            return 13;
+        }
     }
 
     // returns semitone difference between two notes
@@ -223,6 +232,12 @@ public class PlayGameActivity extends AppCompatActivity {
                 293.7,311.1,329.6,349.2,370.0,392.0,415.3,440.0,466.2,
                 493.9, 523.3};
 
+        int noteA = 0;
+        int noteB = 0;
+
+        final double a = notes[noteA];
+        final double b = notes[noteB];
+        /**
         Random generator = new Random();
         int noteA = generator.nextInt(notes.length);
         int noteB; // must be within an octave of first note, or 12 semitones
@@ -232,7 +247,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         final double a = notes[noteA];
         final double b = notes[noteB];
-
+        */
         final int duration =  22050; // half a second
 
         //if button a is pushed
