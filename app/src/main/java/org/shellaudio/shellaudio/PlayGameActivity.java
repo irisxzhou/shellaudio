@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -129,15 +130,30 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
-    private void makeSounds(){
-        double a = getRandomNote();
-        double b = getRandomNote();
-        int duration = 22050;
+    public void makeSounds(){
+
+        final double a = getRandomNote();
+        final double b = getRandomNote();
+        final int duration = 22050;
 
         //if button a is pushed
-        playSound(a, duration);
+        Button buttona = (Button) this.findViewById(R.id.button_a);
+        buttona.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playSound(a, duration);
+            }
+        });
+
         //if button b is pushed
-        playSound(b, duration);
+        Button buttonb = (Button) this.findViewById(R.id.button_b);
+        buttonb.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                playSound(b, duration);
+            }
+        });
+
 
     }
 
@@ -183,7 +199,7 @@ public class PlayGameActivity extends AppCompatActivity {
         // are available.
         delayedHide(100);
 
-        int initSeekBar();
+        //int initSeekBar();
 
     }
 
