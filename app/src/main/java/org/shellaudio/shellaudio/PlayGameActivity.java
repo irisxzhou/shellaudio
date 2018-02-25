@@ -18,6 +18,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.xw.repo.BubbleSeekBar;
+
 import java.util.HashMap;
 import java.util.Random;
 
@@ -189,7 +191,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
                 Log.e("test", attribute);
 
-                SeekBar intervalBar = findViewById(R.id.seekBar);
+                BubbleSeekBar intervalBar = findViewById(R.id.bubbleSeekBar);
                 int interval = intervalBar.getProgress() + 1;
 
                 Log.e("intervalTest", Integer.toString(interval));
