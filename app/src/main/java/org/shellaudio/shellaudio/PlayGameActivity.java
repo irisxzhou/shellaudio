@@ -1,6 +1,7 @@
 package org.shellaudio.shellaudio;
 
 import android.annotation.SuppressLint;
+import android.app.backup.FullBackupDataOutput;
 import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -99,7 +100,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         //deal with intent things
         Intent intent = getIntent();
-        int curr = intent.getIntExtra("round #", -1);
+        int curr = intent.getIntExtra(FullscreenActivity.roundInfo, -1);
 
 
         TextView levelView = findViewById(R.id.editText2);
