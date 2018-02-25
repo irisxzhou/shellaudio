@@ -164,7 +164,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 String attribute = spinner.getSelectedItem().toString();
 
                 BubbleSeekBar intervalBar = findViewById(R.id.bubbleSeekBar);
-                int interval = intervalBar.getProgress() + 1;
+                int interval = intervalBar.getProgress();
 
                 attribute += " ";
                 attribute += interval;
