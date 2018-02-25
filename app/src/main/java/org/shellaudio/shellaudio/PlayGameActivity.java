@@ -200,7 +200,7 @@ public class PlayGameActivity extends AppCompatActivity {
         semitones.put("Diminished 5", 6);
         semitones.put("Augmented 4", 6);
         semitones.put("Perfect 5", 7);
-        semitones.put("Diminished 6", 6);
+        semitones.put("Diminished 6", 7);
         semitones.put("Minor 6", 8);
         semitones.put("Augmented 5", 8);
         semitones.put("Major 6", 9);
