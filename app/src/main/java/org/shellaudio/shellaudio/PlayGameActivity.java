@@ -22,6 +22,14 @@ import java.util.Random;
  * status bar and navigation/system bar) with user interaction.
  */
 public class PlayGameActivity extends AppCompatActivity {
+
+    public void nextScreenWin(View view) {
+
+    }
+
+    public void nextScreenLose(View view) {
+
+    }
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -120,7 +128,20 @@ public class PlayGameActivity extends AppCompatActivity {
         });
 
 
-        makeSounds();
+        int result = makeSounds();
+
+        Button submit = this.findViewById(R.id.button_submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(true){
+                    nextScreenWin(v);
+                } else {
+                   nextScreenLose(v);
+                }
+            }
+        });
+
 
     }
 
